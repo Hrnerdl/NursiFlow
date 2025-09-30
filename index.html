@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NursiFlow | Hemşire İş Akışı Yönetimi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <nav>
+        <h2>NursiFlow</h2>
+        <a href="#" class="nav-link active" data-target="dashboard">Gösterge Paneli</a>
+        <a href="#" class="nav-link" data-target="tasks">Görev & İlaç Takibi</a>
+        <a href="#" class="nav-link" data-target="patient-list">Hasta Profilleri</a>
+        <a href="#" class="nav-link" data-target="notes">Nöbet Teslim Notları</a>
+    </nav>
+
+    <div class="content">
+
+        <section id="dashboard" class="module active">
+            <h1>Hoş Geldiniz, Hemşire!</h1>
+            <p>Bugün yapılması gereken **<span id="pending-tasks-count"></span>** göreviniz var.</p>
+            <h3>Önemli Uyarılar</h3>
+            <ul class="alert-list">
+                <li>Oda 203 (Ayşe Yılmaz): Penisiline alerjisi var!</li>
+            </ul>
+        </section>
+
+        <section id="tasks" class="module">
+            <h2>Görev ve İlaç Takibi</h2>
+            <ul id="task-list">
+                </ul>
+        </section>
+
+        <section id="patient-list" class="module">
+            <h2>Hasta Profilleri ve Özet Bilgi</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Oda No</th>
+                        <th>Ad Soyad</th>
+                        <th>Tanı</th>
+                        <th>Alerjiler</th>
+                        <th>Son Vital</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr onclick="alert('Hasta Detayı: Ayşe Yılmaz, 14:00 tansiyon 120/80')">
+                        <td>203</td>
+                        <td>Ayşe Yılmaz</td>
+                        <td>Pnömoni</td>
+                        <td><span class="patient-alert">Penisilin!</span></td>
+                        <td>14:00 (120/80)</td>
+                    </tr>
+                    <tr onclick="alert('Hasta Detayı: Mehmet Kaya, 14:00 nabız 72, ateş 36.5')">
+                        <td>204</td>
+                        <td>Mehmet Kaya</td>
+                        <td>Kırık</td>
+                        <td>Yok</td>
+                        <td>14:00 (36.5 °C)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="notes" class="module">
+            <h2>Nöbet Teslim ve Vardiya Notları</h2>
+            <textarea id="notes-area" placeholder="Vardiya boyunca önemli gelişmeleri buraya kaydedin..."></textarea>
+            <button class="button" onclick="generateReport()">Teslim Raporu Oluştur</button>
+            <div id="report-output"></div>
+        </section>
+
+    </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
